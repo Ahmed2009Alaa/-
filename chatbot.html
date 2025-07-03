@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أحمد علاء | مطور واجهات أمامية</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #00ffc3;
+            --background-dark: #0f0c29;
+            --background-light: #ffffff;
+            --text-dark: #e0e0e0;
+            --text-light: #111;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(135deg, var(--background-dark), #302b63, #24243e);
+            color: var(--text-dark);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            transition: background 0.5s, color 0.5s;
+        }
+
+        body.light-mode {
+            background: var(--background-light);
+            color: var(--text-light);
+        }
+
+        nav {
+            background: #111;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--primary);
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #fff;
+        }
+
+        .mode-toggle {
+            cursor: pointer;
+            padding: 8px 14px;
+            border: none;
+            border-radius: 6px;
+            background: var(--primary);
+            color: #111;
+            font-weight: bold;
+        }
+
+        header {
+            padding: 140px 20px 60px;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        header img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid var(--primary);
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            color: var(--primary);
+            font-size: 4em;
+            text-shadow: 2px 2px 10px rgba(0, 255, 195, 0.4);
+            animation: fadeInDown 1s ease-in-out;
+        }
+
+        header p {
+            font-size: 1.5em;
+            max-width: 700px;
+            margin: auto;
+            color: #bbb;
+            animation: fadeInUp 1s ease-in-out;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 70px auto;
+            padding: 0 25px;
+        }
+
+        .section-title {
+            font-size: 2.8em;
+            color: var(--primary);
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 4px;
+            background: var(--primary);
+            left: 0;
+            bottom: -10px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: #1c1c2d;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 0 20px rgba(0, 255, 195, 0.1);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 15px 30px rgba(0, 255, 195, 0.3);
+        }
+
+        .card h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.6em;
+        }
+
+        .skills span {
+            display: inline-block;
+            background: var(--primary);
+            color: #111;
+            padding: 10px 18px;
+            margin: 8px;
+            border-radius: 20px;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0, 255, 195, 0.3);
+        }
+
+        .btn-download {
+            margin-top: 25px;
+            padding: 14px 28px;
+            background: var(--primary);
+            color: #111;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            background: #1c1c2d;
+            padding: 30px;
+            border-radius: 12px;
+        }
+
+        input,
+        textarea {
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-family: inherit;
+        }
+
+        .testimonials {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .testimonial {
+            background: #2d2d3d;
+            padding: 20px;
+            border-left: 5px solid var(--primary);
+        }
+
+        footer {
+            background-color: #111;
+            text-align: center;
+            padding: 40px 20px;
+            color: #777;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div>
+            <a href="#about">من أنا</a>
+            <a href="#skills">المهارات</a>
+            <a href="#projects">الأعمال</a>
+            <a href="#contact">تواصل معي</a>
+        </div>
+        <button class="mode-toggle" onclick="document.body.classList.toggle('light-mode')">🌙 الوضع</button>
+    </nav>
+
+    <header>
+        <img src="6.jpg" alt="صورة شخصية">
+        <h1>أحمد علاء</h1>
+        <p>مطور واجهات أمامية محترف - أصxرب رقمية تدهش الزائر</p>
+    </header>
+
+    <div class="container">
+        <section id="about">
+            <h2 class="section-title">من أنا؟</h2>
+            <p>أنا أحمد علاء، مطور فرونت إند أركز على الجمال، الأداء، وتجربة المستخدم المبهرة. أستخدم تقنيات مثل HTML,
+
+                CSS, JavaScript, وReact لصناعة مواقع عصرية ومتجاوبة.</p>
+            <br>
+            <a href="#" class="btn-download">تحميل السيرة الذاتية</a>
+        </section>
+
+        <section id="skills">
+            <h2 class="section-title">المهارات</h2>
+            <div class="skills">
+                <span>HTML5</span>
+                <span>CSS3</span>
+                <span>JavaScript</span>
+                <span>React.js</span>
+                <span>Tailwind CSS</span>
+                <span>Bootstrap</span>
+                <span>Git & GitHub</span>
+                <span>UI/UX</span>
+                <span>Motion UI</span>
+                <span>API Integration</span>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2 class="section-title">أعمالي</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>روبوت دردشة ذكي</h3>
+                    <p>تطبيق يستخدم OpenAI API لتقديم تجربة محادثة فورية وواقعية تدعم العربية، بواجهة مبنية بـReact.</p>
+                </div>
+                <div class="card">
+                    <h3>موقع بورتفوليو شخصي</h3>
+                    <p>واجهة أنيقة وسريعة تستعرض مهاراتي ومشاريعي بأحدث أساليب التصميم.</p>
+                </div>
+                <div class="card">
+                    <h3>منصة تعليم تفاعلية</h3>
+                    <p>تطبيق ويب لتعليم HTML/CSS من خلال خطوات تفاعلية واختبارات حية.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials">
+            <h2 class="section-title">آراء العملاء</h2>
+            <div class="testimonials">
+                <div class="testimonial">
+                    <p>"أحمد أنقذ مشروعي! التصميم كان مثالي والتسليم أسرع من المتوقع."</p>
+                    <strong>- عميل من السعودية</strong>
+                </div>
+                <div class="testimonial">
+                    <p>"أفضل مطور تعاملت معه حتى الآن، فاهم UI وبيعرف ينفذ كل الأفكار بذكاء."</p>
+                    <strong>- شركة برمجيات مصرية</strong>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2 class="section-title">تواصل معي</h2>
+            <form>
+                <input type="text" placeholder="الاسم الكامل" required>
+                <input type="email" placeholder="البريد الإلكتروني" required>
+                <textarea rows="5" placeholder="رسالتك" required></textarea>
+                <button type="submit" class="btn-download">أرسل الآن</button>
+            </form>
+        </section>
+    </div>
+
+    <footer>
+        تم التطوير بالكامل بواسطة أحمد علاء — جميع الحقوق محفوظة 2025
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+    </script>
+</body>
+
+</html>
